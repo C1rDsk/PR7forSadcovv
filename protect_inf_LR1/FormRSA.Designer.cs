@@ -1,6 +1,6 @@
-﻿namespace protect_inf_LR1
+﻿namespace LR7NS
 {
-    partial class Form1
+    partial class FormRSA
     {
         /// <summary>
         /// Требуется переменная конструктора.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.buttonEncrypt = new System.Windows.Forms.Button();
-            this.buttonDecipher = new System.Windows.Forms.Button();
+            this.buttonDecrypt = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox_p = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -40,8 +40,8 @@
             this.label6 = new System.Windows.Forms.Label();
             this.textBox_d = new System.Windows.Forms.TextBox();
             this.textBox_n = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBoxIn = new System.Windows.Forms.TextBox();
+            this.textBoxOut = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // buttonEncrypt
@@ -56,17 +56,17 @@
             this.buttonEncrypt.UseVisualStyleBackColor = true;
             this.buttonEncrypt.Click += new System.EventHandler(this.buttonEncrypt_Click);
             // 
-            // buttonDecipher
+            // buttonDecrypt
             // 
-            this.buttonDecipher.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.buttonDecipher.Location = new System.Drawing.Point(69, 299);
-            this.buttonDecipher.Margin = new System.Windows.Forms.Padding(4);
-            this.buttonDecipher.Name = "buttonDecipher";
-            this.buttonDecipher.Size = new System.Drawing.Size(200, 41);
-            this.buttonDecipher.TabIndex = 2;
-            this.buttonDecipher.Text = "Расшифровать";
-            this.buttonDecipher.UseVisualStyleBackColor = true;
-            this.buttonDecipher.Click += new System.EventHandler(this.buttonDecipher_Click);
+            this.buttonDecrypt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.buttonDecrypt.Location = new System.Drawing.Point(69, 299);
+            this.buttonDecrypt.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonDecrypt.Name = "buttonDecrypt";
+            this.buttonDecrypt.Size = new System.Drawing.Size(200, 41);
+            this.buttonDecrypt.TabIndex = 2;
+            this.buttonDecrypt.Text = "Расшифровать";
+            this.buttonDecrypt.UseVisualStyleBackColor = true;
+            this.buttonDecrypt.Click += new System.EventHandler(this.buttonDecipher_Click);
             // 
             // label1
             // 
@@ -89,6 +89,7 @@
             this.textBox_p.TabIndex = 4;
             this.textBox_p.Text = "101";
             this.textBox_p.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textBox_p.TextChanged += new System.EventHandler(this.textBox_p_TextChanged);
             // 
             // label2
             // 
@@ -176,31 +177,31 @@
             this.textBox_n.TabIndex = 12;
             this.textBox_n.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // textBox1
+            // textBoxIn
             // 
-            this.textBox1.Location = new System.Drawing.Point(352, 11);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox1.Size = new System.Drawing.Size(502, 153);
-            this.textBox1.TabIndex = 13;
+            this.textBoxIn.Location = new System.Drawing.Point(352, 11);
+            this.textBoxIn.Multiline = true;
+            this.textBoxIn.Name = "textBoxIn";
+            this.textBoxIn.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBoxIn.Size = new System.Drawing.Size(502, 153);
+            this.textBoxIn.TabIndex = 13;
             // 
-            // textBox2
+            // textBoxOut
             // 
-            this.textBox2.Location = new System.Drawing.Point(352, 199);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox2.Size = new System.Drawing.Size(502, 153);
-            this.textBox2.TabIndex = 14;
+            this.textBoxOut.Location = new System.Drawing.Point(352, 199);
+            this.textBoxOut.Multiline = true;
+            this.textBoxOut.Name = "textBoxOut";
+            this.textBoxOut.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBoxOut.Size = new System.Drawing.Size(502, 153);
+            this.textBoxOut.TabIndex = 14;
             // 
-            // Form1
+            // FormRSA
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(866, 364);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBoxOut);
+            this.Controls.Add(this.textBoxIn);
             this.Controls.Add(this.textBox_n);
             this.Controls.Add(this.textBox_d);
             this.Controls.Add(this.label6);
@@ -211,11 +212,11 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textBox_p);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.buttonDecipher);
+            this.Controls.Add(this.buttonDecrypt);
             this.Controls.Add(this.buttonEncrypt);
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Name = "FormRSA";
+            this.Load += new System.EventHandler(this.FormRSA_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -224,7 +225,7 @@
         #endregion
 
         private System.Windows.Forms.Button buttonEncrypt;
-        private System.Windows.Forms.Button buttonDecipher;
+        private System.Windows.Forms.Button buttonDecrypt;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox_p;
         private System.Windows.Forms.Label label2;
@@ -235,8 +236,8 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox textBox_d;
         private System.Windows.Forms.TextBox textBox_n;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBoxIn;
+        private System.Windows.Forms.TextBox textBoxOut;
     }
 }
 

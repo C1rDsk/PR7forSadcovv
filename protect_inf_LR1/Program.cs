@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace protect_inf_LR1
+namespace LR7NS
 {
     static class Program
     {
@@ -16,7 +16,7 @@ namespace protect_inf_LR1
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new FormRSA());
         }
     }
 }

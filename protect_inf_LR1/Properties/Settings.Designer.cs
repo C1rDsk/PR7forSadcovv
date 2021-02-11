@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace protect_inf_LR1.Properties
+namespace LR7NS.Properties
 {
 
 

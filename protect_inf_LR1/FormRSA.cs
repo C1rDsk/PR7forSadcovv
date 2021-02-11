@@ -12,26 +12,26 @@ using System.Windows.Forms;
 
 using System.Numerics;
 
-namespace protect_inf_LR1
+namespace LR7NS
 {
-    public partial class Form1 : Form
+    public partial class FormRSA : Form
     {
 
-        public Form1()
+        public FormRSA()
         {
             InitializeComponent();
         }
 
         private void buttonEncrypt_Click(object sender, EventArgs e)
         {
-            if ((textBox_p.Text.Length > 0) && (textBox_q.Text.Length > 0))
-            {
-                long p = Convert.ToInt64(textBox_p.Text);
-                long q = Convert.ToInt64(textBox_q.Text);
+            long p;
+            long q;
 
+            if (long.TryParse(textBox_p.Text,out p)&& long.TryParse(textBox_q.Text, out q))
+            {
                 if (IsTheNumberSimple(p) && IsTheNumberSimple(q))
                 {
-                    string str = textBox1.Text;
+                    string str = textBoxIn.Text;
 
                     long n = p * q;
                     long m = (p - 1) * (q - 1);
@@ -123,7 +123,7 @@ namespace protect_inf_LR1
                 bi = bi % n_;
 
                 result.Add(bi.ToString());
-                textBox2.Text += bi.ToString()+ "\r\n";
+                textBoxOut.Text += bi.ToString()+ "\r\n";
             }
 
             return result;
@@ -184,7 +184,7 @@ namespace protect_inf_LR1
             return le;
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void FormRSA_Load(object sender, EventArgs e)
         {
             List<string> s = new List<string>();
             StreamReader sr = new StreamReader("in.txt");
@@ -197,10 +197,15 @@ namespace protect_inf_LR1
             }
             foreach (string line in s)
             {
-                textBox1.Text += line + "\r\n";
+                textBoxIn.Text += line + "\r\n";
             }
 
             sr.Close();
+        }
+
+        private void textBox_p_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
